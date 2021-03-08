@@ -1,14 +1,16 @@
-## Set up and runing guid
+## Setup dev environment guide
 
 - https://reactnative.dev/docs/environment-setup
 
-## to clone the project
+##To clone the project
 
 - git clone https://github.com/Sam-app/AwesomeProject.git <project-name>
 
-## to install node_modules
+##To install node_modules
 
 - run <npm install> inside the root folder
 
-![succeful api requiest](image/screenshot-1.png)
-![invalid screen](image/screenshot-2.png)
+![succeful api requiest]
+(screenshot/screenshot-1.png)
+![invalid screen]
+(screenshot/screenshot-2.png)
