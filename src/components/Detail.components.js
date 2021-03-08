@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         backgroundColor:'#fff',
         height: 100,
         paddingLeft:10,
-        marginBottom: 5,
+        marginBottom: 10,
         // shadowColor: '#344966',
         // shadowOpacity: 0.1,
         // elevation: 1,

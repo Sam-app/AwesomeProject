@@ -19,6 +19,13 @@ import { Detail } from './Detail.components';
  
     //API REQUEST HANDLER
     const onSubmitEditing = (postcode_inpt) => {
+
+        //IF POSTCODE VALUE IS EMTPY
+        // EMPTY THE PARISH WARD STATE & RETURN
+        if (postcode === "") {
+            setParishWard({});
+            return
+        }
         let url = `https://api.postcodes.io/postcodes/${postcode_inpt}`;
         console.log(url)
         //ON REQUESTING API DISPLAY
@@ -37,7 +44,8 @@ import { Detail } from './Detail.components';
                     const { parish, admin_ward } = result;
                     setParishWard({...parish_ward, parish,ward : admin_ward})
                 }else if(status == 404){
-                    setError({ isActive:true, message : response.error})
+                    setParishWard({})
+                    setError({ isActive:true, message : response.error}); 
                 }
                 console.log(response);
             })
@@ -52,11 +60,12 @@ import { Detail } from './Detail.components';
     return (
         <View style={[styles.container]}>
             <View style={styles.inputBox}>
-                <Text style={styles.title}> Please enter postcode:</Text>
+                <Text style={styles.title}> Please enter a postcode:</Text>
                 <TextInput 
                     style={styles.postcodeInp}
                     value ={postcode} 
                     autoCompleteType ='postal-code'
+                    placeholder = 'eg. LE11 3UE'
                     autoCapitalize='characters'
                     onChangeText = {(val)=>{
                         setPostcode(val)
@@ -64,7 +73,8 @@ import { Detail } from './Detail.components';
                     onSubmitEditing={() => {
                         onSubmitEditing(postcode);
                         Keyboard.dismiss();
-                    }}                 
+                    }}    
+                    returnKeyType='search'             
                 />
             </View>
 
